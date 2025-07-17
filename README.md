@@ -1,169 +1,136 @@
-# 🚀 QLIQ Server - Express Backend
+# MLM & eCommerce Backend API
 
-This is the backend server for the **QLIQ Hackathon Challenge**, built using **Node.js**, **Express**, **MongoDB**, and **Socket.IO**. It powers both the mobile frontend and the admin panel by providing RESTful APIs, real-time updates, and business logic for MLM and eCommerce.
+## Overview
 
----
-
-## 📦 Features
-
-- ✅ REST API with Express.js
-- ✅ MongoDB for data persistence
-- ✅ Real-time MLM updates using Socket.IO
-- ✅ OpenAPI (Swagger) documentation
-- ✅ JWT-based authentication
-- ✅ Referral logic for MLM tree
-- ✅ eCommerce features: Products, Cart, Orders
-- ✅ Mock payment API endpoint
-- ✅ Admin endpoints for user & product management
-- ✅ Integrated with OpenAI API (optional feature)
-- ✅ Test suite via `npm test`
-- ✅ Dockerized deployment support
-- ✅ GitHub Actions CI/CD pipeline
+This project is a backend API for a dynamic Multi-Level Marketing (MLM) platform integrated with a mini eCommerce flow.  
+It features a real-time 3-level MLM user tree, product listing, cart and checkout, mock payment simulation, an admin panel, referral code system, and AI-powered product suggestions using OpenAI.
 
 ---
 
-## 📁 Project Structure
+## Architecture
 
-qliq-server/
-├── src/
-│ ├── controllers/
-│ ├── middleware/
-│ ├── models/
-│ ├── routes/
-│ ├── sockets/
-│ └── utils/
-├── tests/
-├── .env
-├── Dockerfile
-├── openapi.yaml
-├── package.json
-└── README.md
+![Project Architecture](https://app.eraser.io/workspace/TanO9qri00NQvVpQYtrc?origin=share)
 
-yaml
-Copy
-Edit
+The architecture diagram above illustrates the core components and data flow:
+
+- User authentication & referral system  
+- Real-time MLM tree updates using Socket.IO  
+- Product and cart management  
+- Payment simulation via a mock payment API  
+- AI-powered product recommendation with OpenAI  
+- Admin panel for managing users, commissions, and products  
+- Dockerized service for easy deployment  
+- CI/CD pipeline with GitHub Actions  
 
 ---
 
-## 🚀 Getting Started
+## Tech Stack
 
-### 1. Clone the Repository
+- **Backend:** Node.js with Express  
+- **Database:** MongoDB (Atlas)  
+- **Real-time:** Socket.IO  
+- **Validation:** Zod (npm)  
+- **AI:** OpenAI API for product recommendations  
+- **Testing:** Jest & npm test scripts  
+- **Deployment:** Docker & GitHub Actions for CI/CD  
+- **API Documentation:** Postman  
 
-git clone https://github.com/YOUR_USERNAME/qliq-server.git
-cd qliq-server
-2. Install Dependencies
+---
+
+## Features
+
+- Dynamic MLM user tree (3 levels deep) with real-time join notifications  
+- Referral code system to link new users to referrers  
+- Product listing, shopping cart, and checkout flow  
+- Mock payment API simulating payment processing  
+- AI-based product suggestions integrated using OpenAI  
+- Admin panel to view users, commissions, and manage products  
+- Comprehensive validation with Zod schemas  
+- Full test coverage with automated tests  
+- Dockerized backend for consistent environment setup  
+- Automated CI/CD pipeline on GitHub Actions  
+
+---
+
+## Setup & Run Instructions
+
+### Prerequisites
+
+- Node.js v18+  
+- Docker (optional, for containerized deployment)  
+- MongoDB Atlas or local MongoDB instance  
+
+---
+
+### Environment Variables
+
+Create a `.env` file in the root directory with the following variables:
+
+```env
+PORT=8000
+MONGO_URI=mongodb+srv://marwanmhd1999:j28yso41.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+PAYMENT_MOCK_API=http://localhost:8000/api/payment/mock
+JWT_SECRET=1234567890
+OPENAI_API_KEY=sk-proj-RfAHPlPNoeAg0W5XVKiXlI3dcsi6cyoWbdgWsyyl8FSsk0w2Haa6UEfqViuAONv1Btd85AbXRCnic92Kwh7P5T-TUn-z8MA
+Installation & Running Locally
 bash
 Copy
 Edit
-npm install
-3. Set up Environment Variables
-Create a .env file in the root with the following content:
+# Install dependencies
+npm ci
 
-env
+# Run tests
+npm test
+
+# Start the server
+npm run start
+Using Docker
+Build and run the container locally:
+
+bash
 Copy
 Edit
-PORT=8000
-MONGO_URI=mongodb+srv://marwanmhd1999:j2
-PAYMENT_MOCK_API=http://localhost:8000/api/payment/mock
-JWT_SECRET=1234567890
-OPENAI_API_KEY=sk-proj-RAg0W5XVKiXlI3dcsi6cyo3BlbkFJAFSsk0w2Haa6UEfqViuAONv1Btd85AbXRCnic92Kwh7P
-DOCKER_HUB_USERNAME=marwan7771
-DOCKER_HUB_TOKEN=dc_patI
-⚠️ Security Note: Never commit this .env file to Git. Always store it securely in GitHub Secrets (see below).
+# Build the Docker image
+docker build -t qliq-server .
 
-🧪 Running Tests
+# Run the Docker container
+docker run -p 8000:8000 --env-file .env qliq-server
+API Documentation
+Explore the full API endpoints and test requests with Postman:
+Postman Collection
+
+Testing
+Run the test suite with:
+
 bash
 Copy
 Edit
 npm test
-📜 API Documentation
-The backend is fully documented using OpenAPI/Swagger.
+Tests cover validation, core business logic, and API routes.
 
-Docs available at: http://localhost:8000/api-docs
+Challenges & Solutions
+Dependency conflicts: Resolved peer dependency issues between openai and zod by using npm ci --legacy-peer-deps in CI pipeline.
 
-Uses openapi.yaml or inline Swagger JSDoc annotations
+Real-time updates: Implemented Socket.IO to keep MLM tree synchronized on user joins in real-time.
 
-You can edit and test via Swagger Editor
+Payment simulation: Designed a mock payment API that mimics real payment behavior without external dependency.
 
-🔌 Real-Time Events with Socket.IO
-Socket.IO initialized on server boot
+AI integration: Used OpenAI's GPT API to provide intelligent product recommendations, improving user experience.
 
-Used for emitting MLM tree join updates in real-time
+Deployment & CI/CD: Dockerized the app and automated testing, building, and deployment with GitHub Actions for consistent delivery.
 
-Example event: mlm-joined, new-commission, etc.
+Code Quality
+Well-structured with modular routes, controllers, and services
 
-🧾 Mock Payment API
-Available at /api/payment/mock
+Zod schemas ensure strong input validation
 
-Simulates successful or failed payments
+Meaningful, documented code with JSDoc comments
 
-Helps simulate the checkout process in development
+CI pipeline runs automated tests and linting on every push/pull request
 
-🧠 OpenAI Integration
-API Key: OPENAI_API_KEY
-
-Used for optional AI product recommendations
-
-Available via /api/ai/recommend
-
-🐳 Docker Support
-Build Docker Image
-bash
-Copy
-Edit
-docker build -t qliq-server .
-Run Locally with Docker
-bash
-Copy
-Edit
-docker run -p 8000:8000 --env-file .env qliq-server
-⚙️ CI/CD with GitHub Actions
-GitHub Actions workflow in .github/workflows/ci.yml
-
-Steps:
-
-Install dependencies
-
-Run npm test
-
-Build Docker image
-
-Push to Docker Hub (if secrets are configured)
-
-Required GitHub Repository Secrets
-Secret Name	Description
-MONGO_URI	Your MongoDB connection string
-JWT_SECRET	JWT signing key
-OPENAI_API_KEY	Your OpenAI API key
-DOCKER_HUB_USERNAME	Docker Hub username
-DOCKER_HUB_TOKEN	Docker Hub personal access token
-
-Add these under Settings → Secrets and Variables → Actions in your GitHub repo.
-
-✅ API Endpoints Overview
-POST /api/auth/register – Register a new user (with referral logic)
-
-POST /api/auth/login – Login and receive JWT
-
-GET /api/products – List all products
-
-POST /api/cart/add – Add to cart
-
-POST /api/payment/mock – Simulated payment
-
-GET /api/users/:id/tree – Get 3-level MLM tree
-
-GET /api-docs – Swagger docs
-
-🗂 Related Repositories
-qliq-app – React Native mobile app
-
-qliq-admin-panel – Admin panel dashboard
-
-🧠 Architecture Diagram
-View the complete architecture:
-🔗 Eraser Architecture Diagram
-
-👤 Author
+Contact
 Muhammad Marwan
-GitHub: @muhammadmarwan
+Email: marwan@example.com
+GitHub: https://github.com/muhammadmarwan
+
+Thank you for reviewing my submission! Looking forward to your feedback.
