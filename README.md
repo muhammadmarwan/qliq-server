@@ -49,7 +49,6 @@ Edit
 
 ### 1. Clone the Repository
 
-```bash
 git clone https://github.com/YOUR_USERNAME/qliq-server.git
 cd qliq-server
 2. Install Dependencies
