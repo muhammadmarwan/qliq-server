@@ -32,14 +32,3 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t qliq-server .
-
-      - name: Login to Docker Hub
-        uses: docker/login-action@v2
-        with:
-          username: marwan7771
-          password: dckr_pat_XlczZSUMk77JrSuKjI01AbEMBTI
-
-      - name: Push to Docker Hub
-        run: |
-          docker tag qliq-server marwan7771/qliq-server:latest
-          docker push marwan7771/qliq-server:latest
