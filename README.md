@@ -64,18 +64,19 @@ The architecture diagram above illustrates the core components and data flow:
 
 ### Environment Variables
 
-Create a `.env` file in the root directory with the following variables:
+Create a `.env` file in the root directory with the following keys (replace with your actual values):
 
-```env
-PORT=8000
-MONGO_URI=mongodb+srv://marwanmhd1999:j28yso41.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-PAYMENT_MOCK_API=http://localhost:8000/api/payment/mock
-JWT_SECRET=1234567890
-OPENAI_API_KEY=sk-proj-RfAHPlPNoeAg0W5XVKiXlI3dcsi6cyoWbdgWsyyl8FSsk0w2Haa6UEfqViuAONv1Btd85AbXRCnic92Kwh7P5T-TUn-z8MA
+```bash
+PORT=
+MONGO_URI=
+PAYMENT_MOCK_API=
+JWT_SECRET=
+OPENAI_API_KEY=
+```
+
 Installation & Running Locally
-bash
-Copy
-Edit
+
+```bash
 # Install dependencies
 npm ci
 
@@ -84,28 +85,30 @@ npm test
 
 # Start the server
 npm run start
+```
+
 Using Docker
 Build and run the container locally:
 
-bash
-Copy
-Edit
+```bash
 # Build the Docker image
 docker build -t qliq-server .
 
 # Run the Docker container
 docker run -p 8000:8000 --env-file .env qliq-server
+```
 API Documentation
+
 Explore the full API endpoints and test requests with Postman:
 Postman Collection
 
 Testing
 Run the test suite with:
 
-bash
-Copy
-Edit
+```bash
+
 npm test
+```
 Tests cover validation, core business logic, and API routes.
 
 Challenges & Solutions
@@ -130,7 +133,7 @@ CI pipeline runs automated tests and linting on every push/pull request
 
 Contact
 Muhammad Marwan
-Email: marwan@example.com
+Email: mhdmarwan777@gmail.com
 GitHub: https://github.com/muhammadmarwan
 
 Thank you for reviewing my submission! Looking forward to your feedback.
