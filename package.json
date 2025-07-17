@@ -5,8 +5,7 @@
   "scripts": {
     "test": "jest",
     "dev": "nodemon --exec ts-node src/app.ts",
-    "seed:products": "ts-node src/scripts/seedProducts.ts",
-    "build": "tsc"
+    "seed:products": "ts-node src/scripts/seedProducts.ts"
   },
   "keywords": [],
   "author": "",
