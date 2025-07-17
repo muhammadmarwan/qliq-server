@@ -9,7 +9,7 @@ It features a real-time 3-level MLM user tree, product listing, cart and checkou
 
 ## Architecture
 
-![Project Architecture](https://drive.google.com/file/d/1JcLqSo1Fuh-zwoHb3z65iWGG3puCKjZk/view?usp=sharing)
+![Project Architecture](https://drive.google.com/uc?export=view&id=1JcLqSo1Fuh-zwoHb3z65iWGG3puCKjZk)
 
 The architecture diagram above illustrates the core components and data flow:
 
@@ -100,7 +100,7 @@ docker run -p 8000:8000 --env-file .env qliq-server
 API Documentation
 
 Explore the full API endpoints and test requests with Postman:
-![Postman Collection](https://dark-comet-408041-1.postman.co/workspace/My-Workspace~df63faf1-996b-4b83-8948-ca023d8af90b/collection/39643023-d6ef45ad-4ca1-4117-9ef4-9f47b45660bf?action=share&source=copy-link&creator=39643023)
+📎 [View Postman Collection](https://dark-comet-408041-1.postman.co/workspace/My-Workspace~df63faf1-996b-4b83-8948-ca023d8af90b/collection/39643023-d6ef45ad-4ca1-4117-9ef4-9f47b45660bf?action=share&source=copy-link&creator=39643023)
 
 Testing
 Run the test suite with:
