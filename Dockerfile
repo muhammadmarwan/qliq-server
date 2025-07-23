@@ -2,14 +2,18 @@ FROM node:18-alpine
 
 WORKDIR /app
 
+# Install dependencies
 COPY package*.json ./
-
 RUN npm install --legacy-peer-deps
 
+# Copy source code
 COPY . .
 
-RUN npm run build  # ✅ COMPILE TS -> JS
+# ⚠️ COMPILE TypeScript -> JavaScript
+RUN npm run build
 
+# App runs on port 8000
 EXPOSE 8000
 
-CMD ["npm", "start"]  # ✅ this runs: node dist/app.js
+# Run the compiled JS file
+CMD ["npm", "start"]
