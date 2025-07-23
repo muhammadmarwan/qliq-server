@@ -1,11 +1,12 @@
 import { Server as IOServer } from 'socket.io';
+import { config } from '../utils/config';
 
 let io: IOServer;
 
 export function initSocket(server: any) {
   io = new IOServer(server, {
     cors: {
-      origin: 'http://localhost:3000',
+      origin: config.frontendUrl, 
       methods: ['GET', 'POST'],
     },
   });

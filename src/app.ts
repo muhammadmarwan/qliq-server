@@ -17,7 +17,12 @@ import orderRoutes from './routes/order.routes';
 import { initSocket } from './socket';
 
 const app = express();
-app.use(cors());
+
+app.use(cors({
+  origin: config.frontendUrl,
+  credentials: true,
+}));
+
 app.use(express.json());
 
 const server = http.createServer(app); 
