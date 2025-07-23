@@ -8,6 +8,8 @@ RUN npm install --legacy-peer-deps
 
 COPY . .
 
+RUN npm run build  # ✅ COMPILE TS -> JS
+
 EXPOSE 8000
 
-CMD ["npm", "start"]
+CMD ["npm", "start"]  # ✅ this runs: node dist/app.js
