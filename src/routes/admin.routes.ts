@@ -1,7 +1,7 @@
 import express from 'express';
 import { authenticateToken } from '../middleware/auth.middleware';
 import { authorizeRoles } from '../middleware/authorize.middleware';
-import { getDashoardStats } from '../controllers/admin.controller';
+import { getDashoardStats, getMyIP } from '../controllers/admin.controller';
 
 const router = express.Router();
 
@@ -10,6 +10,11 @@ router.get(
     authenticateToken, 
     authorizeRoles('admin'),
     getDashoardStats
+);
+
+router.get(
+    '/get-my-ip', 
+    getMyIP
 );
 
 export default router;

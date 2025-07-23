@@ -1,6 +1,7 @@
 import User from '../models/User';
 import Order from '../models/Order';
 import Product from '../models/Product';
+import axios from 'axios';
 
 export async function getAdminDashboardStats() {
   try {
@@ -41,5 +42,14 @@ export async function getAdminDashboardStats() {
     };
   } catch (error) {
     throw new Error('Failed to load admin stats: ' + (error as any).message);
+  }
+}
+
+export async function getMyIP() {
+ try {
+    const response = await axios.get('https://api.ipify.org?format=json');
+    return { ip: response.data.ip };
+  } catch (err) {
+    throw new Error('Failed to get IP: ' + (err as any).message);
   }
 }
